@@ -1,0 +1,12 @@
+$uri = "http://127.0.0.1:8000/moderate/"
+$body = @{
+    "message" = "idiot"
+    "user_id" = "user6969"
+}
+
+
+$jsonBody = $body | ConvertTo-Json
+
+
+Invoke-RestMethod -Uri $uri -Method Post -Body $jsonBody -ContentType "application/json"
+

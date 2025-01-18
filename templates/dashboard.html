@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr.toxic {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        tr.non-toxic {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+        .btn-ban {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-ban:hover {
+            background-color: #c82333;
+        }
+
+        .message-count {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .message-count.toxic {
+            color: #dc3545;
+        }
+
+        .message-count.non-toxic {
+            color: #28a745;
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 1.5em;
+            color: #6c757d;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Admin Dashboard</h1>
+
+    <div class="container">
+       
+        <div class="card">
+            <div class="message-count toxic" id="toxicCount">Loading Toxic Messages...</div>
+            <div class="message-count non-toxic" id="nonToxicCount">Loading Non-Toxic Messages...</div>
+        </div>
+
+        
+        <div class="card">
+            <table id="messagesTable">
+                <thead>
+                    <tr>
+                        <th>Message</th>
+                        <th>User ID</th>
+                        <th>Prediction</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="loading" id="loadingMessage">Loading messages...</div>
+    </div>
+
+    <script src="{{ url_for('static', path='js/dashboard.js') }}"></script>
+
+</body>
+</html>
